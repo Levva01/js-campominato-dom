@@ -228,6 +228,106 @@ function startClick(){
 
           break;
         case 2:
+        
+            let bombs50 = [
+                getRandomNumber(1, 50)
+            ];
+
+            do{
+        
+                //creo un numero casuale da 1 a 50
+                let num = (getRandomNumber(1, 50));
+            
+                //flag booleano per il numero random
+                let flagRandom = true;
+            
+                //flag booleano per la vittoria della partita
+                flagWin = true;
+            
+                //controllo tutti gli elementi dell'array bombe e se il numero coincide con un elemento dell'array, flagRandom = false
+                for(let i = 0; i < bombs50.length; i++){
+            
+                    if(num == bombs50[i]){
+                        flagRandom = false;
+                    }
+            
+                }
+            
+                //se flagRandom = true allora pusho il numero casuale nell'array
+                if(flagRandom == true){
+                    bombs50.push(num);
+                }
+            
+            } while(bombs50.length < 16);
+
+            console.log(bombs50);
+
+            let cells50 = [];
+            cellsContainer.classList.add("cells-container-50");
+
+            for(let i = 1; i <= 50; i++){
+
+                let cell = document.createElement("div");
+                cell.classList.add("cell-50");
+                cell.innerHTML = i;
+                cell.value = i;
+                cellsContainer.append(cell);
+                cells50.push(cell);
+            }
+
+            let count50 = 0;
+
+                for(let i = 0; i < 50; i++){
+
+                    cells50[i].addEventListener("click", function(){
+
+                        let punteggio = document.getElementById("punteggio");
+
+                        if(cells50[i].classList.contains('cell-clicked') == true){
+                            count50--;
+                            punteggio.innerHTML = count50;
+                        }
+
+                        cells50[i].classList.add("cell-clicked");
+                        count50++;
+                        punteggio.innerHTML = count50;
+
+                        for(let j = 0; j < bombs50.length; j++){
+                            if(cells50[i].value == bombs50[j]){
+
+                                for(let k = 0; k < cells50.length; k++){
+                                    for(let l = 0; l < bombs50.length; l++){
+                                        if(cells50[k].value == bombs50[l]){
+                                            cells50[k].classList.add("bg-color-purple");
+                                        }
+                                    }
+                                }
+
+                                count50--;
+                                cells50[i].classList.remove("cell-clicked");
+                                cells50[i].classList.add("cell-bomb");
+                                document.getElementById("win-loss-text").innerHTML = "HAI PERSO";
+                                document.getElementById("win-loss-text").classList.add("color-red");
+                                document.getElementById("cells-container").classList.add("pointer-event-none");
+
+
+                            }
+                        }
+
+                        if(count50 == 34){
+                            document.getElementById("win-loss-text").innerHTML = "HAI VINTO";
+                            document.getElementById("win-loss-text").classList.add("color-green");
+                            document.getElementById("cells-container").classList.add("pointer-event-none");
+                            
+                        }
+
+                        
+
+                    });
+                }
+
+
+
           break;
       }
 
