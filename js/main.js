@@ -22,7 +22,12 @@ function startClick(){
 
     levelChange.classList.remove("d-none");
 
+
     let gameDiff = document.getElementById("startMenu").value;
+
+    if(document.getElementById("startMenu").value == undefined){
+        gameDiff = 0;
+    }
 
     const cellsContainer = document.querySelector("#cells-container");
 
@@ -78,10 +83,11 @@ function startClick(){
             let count = 0;
 
                 for(let i = 0; i < 100; i++){
+                    
+                    let punteggio = document.getElementById("punteggio");
+                    punteggio.innerHTML = 0;
 
                     cells[i].addEventListener("click", function(){
-
-                        let punteggio = document.getElementById("punteggio");
 
                         if(cells[i].classList.contains('cell-clicked') == true){
                             count--;
@@ -139,6 +145,7 @@ function startClick(){
                 }
 
           break;
+
         case 1:
 
             let bombs80 = [
@@ -189,11 +196,17 @@ function startClick(){
 
             let count80 = 0;
 
+            let punteggio = document.getElementById("punteggio");
+            punteggio.innerHTML = 0;
+
+
                 for(let i = 0; i < 80; i++){
 
-                    cells80[i].addEventListener("click", function(){
+                    
+                    let punteggio = document.getElementById("punteggio");
+                    punteggio.innerHTML = 0;
 
-                        let punteggio = document.getElementById("punteggio");
+                    cells80[i].addEventListener("click", function(){
 
                         if(cells80[i].classList.contains('cell-clicked') == true){
                             count80--;
@@ -250,6 +263,7 @@ function startClick(){
                 }
 
           break;
+
         case 2:
         
             let bombs50 = [
@@ -302,9 +316,11 @@ function startClick(){
 
                 for(let i = 0; i < 50; i++){
 
+                    let punteggio = document.getElementById("punteggio");
+                    punteggio.innerHTML = 0;
+
                     cells50[i].addEventListener("click", function(){
 
-                        let punteggio = document.getElementById("punteggio");
 
                         if(cells50[i].classList.contains('cell-clicked') == true){
                             count50--;

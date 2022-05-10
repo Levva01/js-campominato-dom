@@ -74,15 +74,15 @@ button{
 }
 
 .medio{
-    background-color: orange;
-    color: darkgoldenrod;
-    border: 2px solid darkgoldenrod;
+    background-color: yellow;
+    color: orange;
+    border: 2px solid orange;
 
 }
 
 .medio-active{
-    background-color: darkgoldenrod;
-    color: orange;
+    background-color: darkorange;
+    color: yellow;
 }
 
 .difficile{
@@ -94,7 +94,8 @@ button{
 
 .difficile-active{
     background-color: darkred;
-    color: crimson;
+    color: black;
+    border-color: black;
 }
 
 /*--------------
