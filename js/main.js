@@ -128,6 +128,104 @@ function startClick(){
 
           break;
         case 1:
+
+            let bombs80 = [
+                getRandomNumber(1, 80)
+            ];
+
+            do{
+        
+                //creo un numero casuale da 1 a 80
+                let num = (getRandomNumber(1, 80));
+            
+                //flag booleano per il numero random
+                let flagRandom = true;
+            
+                //flag booleano per la vittoria della partita
+                flagWin = true;
+            
+                //controllo tutti gli elementi dell'array bombe e se il numero coincide con un elemento dell'array, flagRandom = false
+                for(let i = 0; i < bombs80.length; i++){
+            
+                    if(num == bombs80[i]){
+                        flagRandom = false;
+                    }
+            
+                }
+            
+                //se flagRandom = true allora pusho il numero casuale nell'array
+                if(flagRandom == true){
+                    bombs80.push(num);
+                }
+            
+            } while(bombs80.length < 16);
+
+            console.log(bombs80);
+
+            let cells80 = [];
+            cellsContainer.classList.add("cells-container-80");
+
+            for(let i = 1; i <= 80; i++){
+
+                let cell = document.createElement("div");
+                cell.classList.add("cell80");
+                cell.innerHTML = i;
+                cell.value = i;
+                cellsContainer.append(cell);
+                cells80.push(cell);
+            }
+
+            let count80 = 0;
+
+                for(let i = 0; i < 80; i++){
+
+                    cells80[i].addEventListener("click", function(){
+
+                        let punteggio = document.getElementById("punteggio");
+
+                        if(cells80[i].classList.contains('cell-clicked') == true){
+                            count80--;
+                            punteggio.innerHTML = count80;
+                        }
+
+                        cells80[i].classList.add("cell-clicked");
+                        count80++;
+                        punteggio.innerHTML = count80;
+
+                        for(let j = 0; j < bombs80.length; j++){
+                            if(cells80[i].value == bombs80[j]){
+
+                                for(let k = 0; k < cells80.length; k++){
+                                    for(let l = 0; l < bombs80.length; l++){
+                                        if(cells80[k].value == bombs80[l]){
+                                            cells80[k].classList.add("bg-color-purple");
+                                        }
+                                    }
+                                }
+
+                                count80--;
+                                cells80[i].classList.remove("cell-clicked");
+                                cells80[i].classList.add("cell-bomb");
+                                document.getElementById("win-loss-text").innerHTML = "HAI PERSO";
+                                document.getElementById("win-loss-text").classList.add("color-red");
+                                document.getElementById("cells-container").classList.add("pointer-event-none");
+
+
+                            }
+                        }
+
+                        if(count80 == 64){
+                            document.getElementById("win-loss-text").innerHTML = "HAI VINTO";
+                            document.getElementById("win-loss-text").classList.add("color-green");
+                            document.getElementById("cells-container").classList.add("pointer-event-none");
+                            
+                        }
+
+                        
+
+                    });
+                }
+
           break;
         case 2:
           break;
