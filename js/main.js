@@ -110,6 +110,12 @@ function startClick(){
                                 document.getElementById("win-loss-text").classList.add("color-red");
                                 document.getElementById("cells-container").classList.add("pointer-event-none");
 
+                                let restartBtn = document.getElementById("restart-btn");
+                                restartBtn.classList.remove("d-none");
+                                restartBtn.addEventListener("click", function(){
+                                    window.location.reload();
+                                });
+
 
                             }
                         }
@@ -118,6 +124,12 @@ function startClick(){
                             document.getElementById("win-loss-text").innerHTML = "HAI VINTO";
                             document.getElementById("win-loss-text").classList.add("color-green");
                             document.getElementById("cells-container").classList.add("pointer-event-none");
+
+                            let restartBtn = document.getElementById("restart-btn");
+                                restartBtn.classList.remove("d-none");
+                                restartBtn.addEventListener("click", function(){
+                                window.location.reload();
+                            });
                             
                         }
 
@@ -210,6 +222,11 @@ function startClick(){
                                 document.getElementById("win-loss-text").classList.add("color-red");
                                 document.getElementById("cells-container").classList.add("pointer-event-none");
 
+                                let restartBtn = document.getElementById("restart-btn");
+                                restartBtn.classList.remove("d-none");
+                                restartBtn.addEventListener("click", function(){
+                                    window.location.reload();
+                                });
 
                             }
                         }
@@ -218,6 +235,12 @@ function startClick(){
                             document.getElementById("win-loss-text").innerHTML = "HAI VINTO";
                             document.getElementById("win-loss-text").classList.add("color-green");
                             document.getElementById("cells-container").classList.add("pointer-event-none");
+
+                            let restartBtn = document.getElementById("restart-btn");
+                                restartBtn.classList.remove("d-none");
+                                restartBtn.addEventListener("click", function(){
+                                window.location.reload();
+                            });
                             
                         }
 
@@ -310,6 +333,12 @@ function startClick(){
                                 document.getElementById("win-loss-text").classList.add("color-red");
                                 document.getElementById("cells-container").classList.add("pointer-event-none");
 
+                                let restartBtn = document.getElementById("restart-btn");
+                                restartBtn.classList.remove("d-none");
+                                restartBtn.addEventListener("click", function(){
+                                    window.location.reload();
+                                });
+
 
                             }
                         }
@@ -318,6 +347,12 @@ function startClick(){
                             document.getElementById("win-loss-text").innerHTML = "HAI VINTO";
                             document.getElementById("win-loss-text").classList.add("color-green");
                             document.getElementById("cells-container").classList.add("pointer-event-none");
+
+                            let restartBtn = document.getElementById("restart-btn");
+                                restartBtn.classList.remove("d-none");
+                                restartBtn.addEventListener("click", function(){
+                                window.location.reload();
+                            });
                             
                         }
 
