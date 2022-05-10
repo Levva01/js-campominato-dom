@@ -7,14 +7,176 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
+/*----------
+    MENU
+----------*/
+
+let flagEasy = false;
+let flagMedium = false;
+let flagHard = false;
+
+function startClick(){
+    let menuChange = document.getElementById("startMenu");
+    let levelChange = document.getElementById("gameLevel");
+    menuChange.classList.add("d-none");
+
+    levelChange.classList.remove("d-none");
+
+    let gameDiff = document.getElementById("startMenu").value;
+
+    const cellsContainer = document.querySelector("#cells-container");
+
+    switch(gameDiff) {
+        case 0:
+
+            let bombs = [
+                getRandomNumber(1, 100)
+            ];
+
+            do{
+        
+                //creo un numero casuale da 1 a 100
+                let num = (getRandomNumber(1, 100));
+            
+                //flag booleano per il numero random
+                let flagRandom = true;
+            
+                //flag booleano per la vittoria della partita
+                flagWin = true;
+            
+                //controllo tutti gli elementi dell'array bombe e se il numero coincide con un elemento dell'array, flagRandom = false
+                for(let i = 0; i < bombs.length; i++){
+            
+                    if(num == bombs[i]){
+                        flagRandom = false;
+                    }
+            
+                }
+            
+                //se flagRandom = true allora pusho il numero casuale nell'array
+                if(flagRandom == true){
+                    bombs.push(num);
+                }
+            
+            } while(bombs.length < 16);
+
+            console.log(bombs);
+
+            let cells = [];
+            cellsContainer.classList.add("cells-container-100");
+
+            for(let i = 1; i <= 100; i++){
+
+                let cell = document.createElement("div");
+                cell.classList.add("cell");
+                cell.innerHTML = i;
+                cell.value = i;
+                cellsContainer.append(cell);
+                cells.push(cell);
+            }
+
+            let count = 0;
+
+                for(let i = 0; i < 100; i++){
+
+                    cells[i].addEventListener("click", function(){
+
+                        let punteggio = document.getElementById("punteggio");
+
+                        if(cells[i].classList.contains('cell-clicked') == true){
+                            count--;
+                            punteggio.innerHTML = count;
+                        }
+
+                        cells[i].classList.add("cell-clicked");
+                        count++;
+                        punteggio.innerHTML = count;
+
+                        for(let j = 0; j < bombs.length; j++){
+                            if(cells[i].value == bombs[j]){
+
+                                for(let k = 0; k < cells.length; k++){
+                                    for(let l = 0; l < bombs.length; l++){
+                                        if(cells[k].value == bombs[l]){
+                                            cells[k].classList.add("bg-color-purple");
+                                        }
+                                    }
+                                }
+
+                                count--;
+                                cells[i].classList.remove("cell-clicked");
+                                cells[i].classList.add("cell-bomb");
+                                document.getElementById("win-loss-text").innerHTML = "HAI PERSO";
+                                document.getElementById("win-loss-text").classList.add("color-red");
+                                document.getElementById("cells-container").classList.add("pointer-event-none");
+
+
+                            }
+                        }
+
+                        if(count == 84){
+                            document.getElementById("win-loss-text").innerHTML = "HAI VINTO";
+                            document.getElementById("win-loss-text").classList.add("color-green");
+                            document.getElementById("cells-container").classList.add("pointer-event-none");
+                            
+                        }
+
+                        
+
+                    });
+                }
+
+          break;
+        case 1:
+          break;
+        case 2:
+          break;
+      }
+
+}
+
+function gameDifficulty(){
+    let startMenu = document.getElementById("startMenu");
+    let facile = document.getElementById("easy");
+    let medio = document.getElementById("medium");
+    let difficile = document.getElementById("hard");
+
+    facile.addEventListener("click", function(){
+        value = 0;
+        facile.classList.add("facile-active");
+        medio.classList.remove("medio-active");
+        difficile.classList.remove("difficile-active");
+        startMenu.value = 0;
+    });
+
+    
+    medio.addEventListener("click", function(){
+        facile.classList.remove("facile-active");
+        medio.classList.add("medio-active");
+        difficile.classList.remove("difficile-active");
+        startMenu.value = 1;
+    });
+
+    
+    difficile.addEventListener("click", function(){
+        facile.classList.remove("facile-active");
+        medio.classList.remove("medio-active");
+        difficile.classList.add("difficile-active");
+        startMenu.value = 2;
+    });
+}
+
+
+
+
 /*-------------
     MAIN
 -------------*/
 
 //chiedo all'utente il livello di difficolta (0 - 100) (1 - 80) (2 - 50)
-let levelDifficulty = 0;
+//let levelDifficulty = 0;
 
-do{
+/* do{
     levelDifficulty = Number(prompt("Inserisci il livello di difficoltà a cui vuoi giocare: (0 - 100 caselle), (1 - 80 caselle), (2 - 50 caselle) :"));
 } while(isNaN(levelDifficulty) || levelDifficulty >= 3 || levelDifficulty < 0);
 
@@ -313,4 +475,4 @@ switch(levelDifficulty){
         }
 
     break;
-}
+} */

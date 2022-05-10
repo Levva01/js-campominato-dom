@@ -9,8 +9,52 @@
     </head>
     <body>
         
+        <div class="container">
+            
+            <div class="game">
+
+                <div id="startMenu" class="menu">
+                    <h1>CAMPO MINATO</h1>
+
+                    <button class="startButton" onclick="startClick()">START</button>
+
+                    <div class="diff-div">Seleziona il livello di difficoltà</div>
+                    <button onclick="gameDifficulty()" class="facile" id="easy" value="0">Facile</button>
+                    <button onclick="gameDifficulty()" class="medio" id="medium" value="1">Medio</button>
+                    <button onclick="gameDifficulty()" class="difficile" id="hard" value="2">Difficile</button>
+                </div>
+
+                <div id="gameLevel" class="game-level d-none">
+
+                    <div id="cells-container" class="">
+
+                    </div>
+
+                    <div class="game-statistics">
+
+                        <div class="section-punteggio">    
+                            <div class="punteggio-titolo">Punteggio: </div>
+                            <div id="punteggio"></div>
+                        </div>
+
+                        <div id="win-loss-text">
+                        </div>
+
+
+
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        
         <!-- script -->
-        <script src="js/main.js"></script>
+        <script src="js/main.js"></script> -->
         <!-- /script -->
 
     </body>
