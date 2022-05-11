@@ -110,6 +110,7 @@ function startClick(){
                                 }
 
                                 count--;
+                                punteggio.innerHTML = count;
                                 cells[i].classList.remove("cell-clicked");
                                 cells[i].classList.add("cell-bomb");
                                 document.getElementById("win-loss-text").innerHTML = "HAI PERSO";
@@ -229,6 +230,7 @@ function startClick(){
                                 }
 
                                 count80--;
+                                punteggio.innerHTML = count80;
                                 cells80[i].classList.remove("cell-clicked");
                                 cells80[i].classList.add("cell-bomb");
                                 document.getElementById("win-loss-text").innerHTML = "HAI PERSO";
@@ -343,6 +345,7 @@ function startClick(){
                                 }
 
                                 count50--;
+                                punteggio.innerHTML = count50;
                                 cells50[i].classList.remove("cell-clicked");
                                 cells50[i].classList.add("cell-bomb");
                                 document.getElementById("win-loss-text").innerHTML = "HAI PERSO";
